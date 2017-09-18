@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/09/2017 04:33:28 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="model.Cultivo" table="cultivo" catalog="smart_crop">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tipoCultivo" class="model.TipoCultivo" fetch="select">
+            <column name="tipo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="estacion" class="model.Estacion" fetch="select">
+            <column name="estacion_id" not-null="true" />
+        </many-to-one>
+        <set name="estadisticas" table="estadistica" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="cultivo_id" not-null="true" />
+            </key>
+            <one-to-many class="model.Estadistica" />
+        </set>
+        <set name="alertases" table="alertas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="cultivo_id" not-null="true" />
+            </key>
+            <one-to-many class="model.Alertas" />
+        </set>
+        <set name="catalogoSensors" table="rel_cultivo_sensor" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="cultivo_id" not-null="true" />
+            </key>
+            <many-to-many entity-name="model.CatalogoSensor">
+                <column name="sensor_id" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="catalogoActuadors" table="rel_cultivo_actuador" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="cultivo_id" not-null="true" />
+            </key>
+            <many-to-many entity-name="model.CatalogoActuador">
+                <column name="actuador_id" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

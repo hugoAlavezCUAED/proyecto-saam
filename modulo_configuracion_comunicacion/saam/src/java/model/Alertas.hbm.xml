@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/09/2017 04:33:28 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="model.Alertas" table="alertas" catalog="smart_crop">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cultivo" class="model.Cultivo" fetch="select">
+            <column name="cultivo_id" not-null="true" />
+        </many-to-one>
+        <property name="leido" type="boolean">
+            <column name="leido" not-null="true" />
+        </property>
+        <property name="contenido" type="string">
+            <column name="contenido" length="500" not-null="true" />
+        </property>
+        <property name="fechaCreacion" type="timestamp">
+            <column name="fecha_creacion" length="19" not-null="true" />
+        </property>
+        <property name="fechaLeido" type="timestamp">
+            <column name="fecha_leido" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

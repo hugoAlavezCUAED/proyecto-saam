@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="smart_crop"/>
+  <table-filter match-name="cultivo"/>
+  <table-filter match-name="catalogo_actuador"/>
+  <table-filter match-name="usuario"/>
+  <table-filter match-name="rel_cultivo_actuador"/>
+  <table-filter match-name="catalogo_sensor"/>
+  <table-filter match-name="estacion"/>
+  <table-filter match-name="rel_cultivo_sensor"/>
+  <table-filter match-name="alertas"/>
+  <table-filter match-name="estadistica"/>
+  <table-filter match-name="tipo_cultivo"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,75 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default" namespace="/">
+        <action name="login" class="actions.LoginAction" method="login">
+            <result name="success" type="redirectAction">
+                <param name="actionName">estaciones</param>
+                <param name="namespace">/</param>
+            </result>
+            <result name="input">/index.jsp</result>
+        </action>
+        
+        <action name="estaciones" class="actions.EstacionesAction" method="listarEstaciones">
+            <result name="success">/estaciones.jsp</result>            
+        </action>
+        
+        <action name="nuevaEstacion" class="actions.EstacionesAction" method="crearEstacion">
+            <result name="captura">/nuevaEstacion.jsp</result>
+            <result name="success" type="redirectAction">
+                <param name="actionName">estaciones</param>
+                <param name="namespace">/</param>
+            </result>
+        </action>
+        
+        <action name="editarEstacion" class="actions.EstacionesAction" method="actualizarEstacion">
+            <result name="captura">/actualizarEstacion.jsp</result>
+            <result name="success" type="redirectAction">
+                <param name="actionName">estaciones</param>
+                <param name="namespace">/</param>
+            </result>
+        </action>
+        
+        <action name="eliminarEstacion" class="actions.EstacionesAction" method="eliminarEstacion">
+            <result name="success" type="redirectAction">
+                <param name="actionName">estaciones</param>
+                <param name="namespace">/</param>
+            </result>
+        </action>
+        
+        <action name="cultivos" class="actions.CultivosAction" method="listarCultivos">
+            <result name="success">/cultivos.jsp</result>
+        </action>
+        
+        <action name="tiposcultivo" class="actions.TiposCultivoAction" method="listarTiposCultivo">
+            <result name="success">/tiposCultivo.jsp</result>
+        </action>
+        
+        <action name="nuevoTipoCultivo" class="actions.TiposCultivoAction" method="crearTipoCultivo">
+            <result name="captura">/nuevoTipoCultivo.jsp</result>
+            <result name="success" type="redirectAction">
+                <param name="actionName">tiposcultivo</param>
+                <param name="namespace">/</param>
+            </result>
+        </action> 
+         
+        <action name="actualizarTipoCultivo" class="actions.TiposCultivoAction" method="actualizarTipoCultivo">
+            <result name="captura">/actualizarTipoCultivo.jsp</result>
+            <result name="success" type="redirectAction">
+                <param name="actionName">tiposcultivo</param>
+                <param name="namespace">/</param>
+            </result>
+        </action>
+        
+        <action name="eliminarTipoCultivo" class="actions.TiposCultivoAction" method="eliminarTipoCultivo">
+            <result name="success" type="redirectAction">
+                <param name="actionName">tiposcultivo</param>
+                <param name="namespace">/</param>
+            </result>
+        </action>
+                  
+    </package>
+</struts>
